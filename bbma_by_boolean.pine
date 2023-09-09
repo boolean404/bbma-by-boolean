@@ -16,7 +16,7 @@ lower_bb = basis - dev
 plot(basis, "Middle", color=#2962FF, offset = bb_offset)
 p1 = plot(upper_bb, "Upper", color=#2962FF, offset = bb_offset)
 p2 = plot(lower_bb, "Lower", color=#2962FF, offset = bb_offset)
-fill(p1, p2, title = "Background", color=color.rgb(33, 150, 243, 95))
+// fill(p1, p2, title = "Background", color=color.rgb(33, 150, 243, 95))
 // end bb
 
 // start moving average
@@ -32,21 +32,15 @@ wma3_src = input(low, title="WMA 3", group="MA Source")
 wma4_src = input(high, title="WMA 4", group="MA Source")
 ema_src = input(close, title="EMA", group="MA Source")
 
-wma1_offset = input.int(title="WMA 1", defval=0, minval=-500, maxval=500, group="MA Offset")
-wma2_offset = input.int(title="WMA 2", defval=0, minval=-500, maxval=500, group="MA Offset")
-wma3_offset = input.int(title="WMA 3", defval=0, minval=-500, maxval=500, group="MA Offset")
-wma4_offset = input.int(title="WMA 4", defval=0, minval=-500, maxval=500, group="MA Offset")
-ema_offset = input.int(title="EMA", defval=0, minval=-500, maxval=500, group="MA Offset")
-
 wma1_out = ta.wma(wma1_src, wma1_len)
 wma2_out = ta.wma(wma2_src, wma2_len)
 wma3_out = ta.wma(wma3_src, wma3_len)
 wma4_out = ta.wma(wma4_src, wma4_len)
 ema_out = ta.ema(ema_src, ema_len)
 
-plot(wma1_out, title="WMA 1", color=#FF00FF, offset=wma1_offset)
-plot(wma2_out, title="WMA 2", color=color.red, offset=wma2_offset)
-plot(wma3_out, title="WMA 3", color=color.white, offset=wma3_offset)
-plot(wma4_out, title="WMA 4", color=color.yellow, offset=wma4_offset)
-plot(ema_out, color=color.aqua, title="EMA", offset=ema_offset)
+plot(wma1_out, title="WMA 1", color=#FF00FF)
+plot(wma2_out, title="WMA 2", color=color.red)
+plot(wma3_out, title="WMA 3", color=color.white)
+plot(wma4_out, title="WMA 4", color=color.yellow)
+plot(ema_out, title="EMA", color=color.aqua)
 // end moving average
